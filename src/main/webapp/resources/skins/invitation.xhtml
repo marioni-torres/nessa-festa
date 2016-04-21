@@ -1,0 +1,63 @@
+<h:html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://primefaces.org/ui">
+
+<composite:interface>
+	<composite:attribute name="style" />
+</composite:interface>
+
+<composite:implementation>
+	<ui:decorate template="../../templates/confirmation/invitation.xhtml">
+		<ui:define name="title">
+			<composite:renderFacet name="windowsTitle" />
+		</ui:define>
+		<ui:define name="resources">
+			<composite:renderFacet name="skinResources" />
+		</ui:define>
+		<ui:define name="bodySkin">
+
+			<p:layout styleClass="#{cc.attrs.style}" id="skinLayout"
+				widgetVar="skinLayout">
+				<!-- header -->
+				<p:layoutUnit position="north">
+					<composite:renderFacet name="skinNorth" />
+				</p:layoutUnit>
+
+				<!-- content -->
+				<p:layoutUnit position="center">
+					<p:panel id="contentPanel">
+						<f:facet name="header">
+							<p:outputLabel value="#{confirmInvitationBean.invitation.event}" />
+						</f:facet>
+						<composite:renderFacet name="content" />
+					</p:panel>
+				</p:layoutUnit>
+			</p:layout>
+
+			<h:form>
+
+				<p:confirmDialog id="createDialog" widgetVar="createDialogWidget"
+					message="#{messages.confirm_assistance_label_create_record}"
+					showEffect="fade" hideEffect="explode"
+					header="#{messages.confirm_assistance_dialog_title}"
+					severity="alarm">
+					<p:outputPanel id="createPanel">
+
+						<p:commandButton id="createYesButton"
+							value="#{messages.label_yes}"
+							action="#{confirmInvitationBean.saveAttendeeGroups}"
+							update="@parent" oncomplete="createDialogWidget.hide()" />
+						<p:commandButton id="createNoButton" value="#{messages.label_no}"
+							onclick="createDialogWidget.hide()" type="button" />
+
+					</p:outputPanel>
+				</p:confirmDialog>
+
+			</h:form>
+		</ui:define>
+	</ui:decorate>
+</composite:implementation>
+
+</h:html>

@@ -1,0 +1,25 @@
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
+	parent="parent-flow">
+
+	<input name="eventUUID" value="flowScope.eventUUID" required="true" />
+	<input name="invitationUUID" value="flowScope.invitationUUID"
+		required="true" />
+
+	<view-state id="invitation">
+		<on-entry>
+			<evaluate
+				expression="confirmInvitationBean.loadInvitation(eventUUID, invitationUUID)" />
+			<evaluate expression="confirmInvitationBean.buildAttendeesGroupForInvitation()" />
+		</on-entry>
+		<transition on="success" to="end" />
+	</view-state>
+
+	<view-state id="uncaughtException" />
+	<view-state id="resourceNotFound" />
+
+	<end-state id="end"
+		view="externalRedirect:servletRelative:/view/invitation/#{eventUUID}/#{invitationUUID}" />
+</flow>

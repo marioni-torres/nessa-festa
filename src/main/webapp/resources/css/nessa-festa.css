@@ -1,0 +1,305 @@
+@CHARSET "UTF-8";
+
+.main-panel {
+	width: 58em;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0.1em;
+}
+
+/*LOG IN TABLE*/
+.login-table {
+	margin: 2em;
+}
+
+.login-table TFOOT {
+	text-align: right;
+	margin: 0.5em;
+}
+
+.login-table TFOOT TD {
+	padding-top: 1em;
+}
+
+.ui-dialog-footer {
+	text-align: right !important;
+}
+
+.ui-dialog-footer INPUT.marging-left {
+	margin-right: 0.5em;
+}
+
+/*DATA TABLE*/
+.ui-datatable-data TR {
+	height: 10em;
+}
+
+/*SPINNER*/
+.ui-spinner {
+	background: transparent !important;
+}
+
+.ui-spinner-input {
+	width: 34px;
+	height: 34px;
+	background: url("../../resources/images/spinner-background.png") !important;
+	color: white !important;
+	font-size: large !important;
+	font-weight: bold !important;
+	padding: 0 !important;
+	text-align: center !important;
+	border: 0 !important;
+}
+
+.ui-spinner A.ui-spinner-up {
+	width: 34px;
+	height: 30px;
+	background: url("../../resources/images/increment.png") !important;
+	margin-top: -35px;
+	margin-right: 0;
+	border: 0 !important;
+}
+
+.ui-spinner A.ui-spinner-up SPAN.ui-icon {
+	background-image: none !important;
+}
+
+.ui-spinner A.ui-spinner-down {
+	width: 34px;
+	height: 30px;
+	background: url("../../resources/images/decrement.png") !important;
+	margin-bottom: -35px;
+	margin-right: 0;
+	border: 0 !important;
+}
+
+.ui-spinner A.ui-spinner-down SPAN.ui-icon {
+	background-image: none !important;
+}
+
+/**
+	BLUES SKIN Look & Feel
+*/
+DIV.blues {
+	background: url("../../images/background-main-stars.png") center
+		repeat-y;
+	background-color: #376CA7;
+	background-image: -webkit-linear-gradient(top, #1DA9F3, #376CA7);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#1DA9F3, endColorstr=#376CA7);
+	margin-left: auto;
+	margin-right: auto;
+	width: 46.750em;
+	height: 35.063em;
+}
+
+DIV.blues BUTTON.ui-state-hover,
+DIV.blues BUTTON.ui-state-focus {
+	background-image: none;
+	background-color: #DB3C1D !important;
+	border: 1px solid #9C120C !important;
+	color: #fff !important;
+}
+
+DIV.blues LABEL.low-margin-bottom {
+	margin-bottom: 0.7em;
+	margin-left: 1em;
+	display: inline-block;
+}
+
+DIV.blues .ui-widget-content DIV {
+	border: 0 !important;
+}
+
+DIV.blues .ui-widget-content FORM {
+	margin: 0 !important;
+}
+
+DIV.blues .dd-medium-marging-bottom DD {
+	margin-bottom: 0.8em !important;
+}
+
+DIV.blues .valign-top {
+	vertical-align: top !important;
+}
+
+DIV.blues .medium-font {
+	font-size: medium !important;
+}
+
+/*BASE SKIN LAYOUT (north-center)*/
+DIV.blues .ui-layout-unit-content,DIV.blues .ui-layout-unit {
+	padding: 0 !important;
+	visibility: visible !important;
+}
+
+DIV.blues .ui-layout-unit-content {
+	background: transparent;
+}
+
+DIV.blues .ui-layout-resizer {
+	display: none !important;
+}
+
+DIV.blues .ui-layout-north {
+	height: 5.0em !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+}
+
+DIV.blues .ui-layout-north {
+	background: url("../../images/background-main-stars.png") center
+		repeat-y;
+}
+
+DIV.blues .ui-layout-north .ui-layout-unit-content {
+	overflow: hidden !important;
+}
+
+DIV.blues .ui-layout-north H1 {
+	margin: 0;
+}
+
+DIV.blues .ui-layout-north #greetings_panel {
+	padding: 1.5em 1.5em 0.5em 1.5em;
+}
+
+DIV.blues .ui-layout-north #greetings_panel LABEL {
+	color: #214B6B;
+}
+
+DIV.blues .ui-layout-center {
+	height: 26.375em !important;
+	margin: 0em 1em 0em 1em !important;
+	border-radius: 10px !important;
+	background: transparent !important;
+	width: 40.5em !important;
+	top: 5.0em !important;
+}
+
+DIV.blues .ui-layout-center .ui-layout-unit-content {
+	overflow: hidden !important;
+}
+
+DIV.blues .ui-layout-center .ui-panel-titlebar {
+	height: 2.0em;
+	text-align: center;
+	padding: 0.5em 0em 0em 0em;
+	background-color: #1d96d7;
+	background-image: -webkit-linear-gradient(top, #deedf7, #128BCC);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#deedf7, endColorstr=#128BCC);
+}
+
+DIV.blues .ui-layout-center .ui-panel-titlebar SPAN {
+	border: 0;
+	background: transparent;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 0px 1px 0px rgba(32, 30, 30, 0.7);
+	font-size: large !important;
+}
+
+DIV.blues .ui-layout-center .ui-panel,
+DIV.blues .ui-layout-center .ui-panel-content {
+	padding: 0 !important;
+	background-color: #fff;
+}
+
+DIV.blues .ui-layout-center #content_panel {
+	height: 19.375em;
+	border-radius: 2px;
+	background-color: #fff;
+	padding: 15px 10px 0 10px;
+}
+
+DIV.blues .ui-layout-center .buttons BUTTON,
+DIV.blues .default-btn {
+	border-radius: 15px;
+	width: 110px;
+	height: 38px;
+}
+
+DIV.blues .size-medium-btn {
+	width: 195px;
+}
+
+DIV.blues .size-large-btn {
+	width: 220px;
+}
+
+DIV.blues .ui-layout-center .buttons DIV.buttons_right {
+	display: inline-block;
+	float: right;
+	margin-right: 3.5em;
+}
+
+DIV.blues .ui-layout-center .buttons DIV.buttons_left {
+	display: inline-block;
+	float: left;
+	margin-left: 3.5em;
+}
+
+DIV.blues .ui-layout-center .buttons DIV.buttons_right BUTTON {
+	margin-left: 1.0em;
+}
+
+/*DATATABLE*/
+DIV.blues .ui-datatable TABLE {
+	border-collapse: inherit !important;
+}
+
+DIV.blues .ui-datatable .ui-datatable-even,
+DIV.blues .ui-datatable .ui-datatable-odd {
+	height: 12em;
+}
+
+/*DATATABLE (party-build)*/
+DIV.blues .party-build-datatable .ui-datatable-scrollable-footer,
+DIV.blues .party-build-datatable .ui-datatable-header,
+DIV.blues .party-build-datatable .ui-datatable-scrollable-header {
+	display: none;
+}
+
+DIV.blues .party-build-datatable .ui-datatable-footer {
+	background-color: transparent;
+	background: none;
+}
+
+DIV.blues .party-build-datatable .ui-datatable-footer H2 {
+	margin: 0;
+}
+
+DIV.blues .party-build-datatable .ui-datatable-scrollable-body {
+	height: 20em;
+}
+
+DIV.blues .party-build-datatable TR.party-build-datatable-row {
+	background: #ffffff !important;
+}
+
+DIV.blues .party-build-datatable TD:FIRST-CHILD,
+DIV.blues .party-build-datatable TD:FIRST-CHILD .ui-widget {
+	width: 27.28em !important;
+	text-align: right;
+	font-size: 20px !important;
+	color: #9C9696;
+}
+
+DIV.blues .party-build-datatable TD:FIRST-CHILD LABEL.subtitle-change-name {
+	font-size: 0.8em !important;
+	float: right;
+}
+
+DIV.blues .party-build-datatable TD {
+	border-top-width: thin;
+	border-top-color: #C4C4C4;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	text-align: left;
+}
+
+DIV.blues .party-update-datatable .ui-datatable-scrollable-body {
+	height: 16.8em;
+}
+

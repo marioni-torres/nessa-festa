@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<f:view locale="#{localeBean.locale}" contentType="text/html">
+  <h:head>
+    <title>#{applicationBean.appName}</title>
+    <h:outputStylesheet library="css" name="standard.css" />
+  </h:head>
+  <h:body>
+    <h:panelGrid cellspacing="0" cellpadding="0" styleClass="wrapper">
+      <h:panelGrid columns="2" columnClasses="menu,content">
+        <p:panel cellspacing="0" cellpadding="0" styleClass="menu">
+          <h:form>
+            <h:outputLink value="#{request.contextPath}#{currentViewId}">
+              <h:graphicImage library="images" name="roo_logo.png" styleClass="banner" />
+            </h:outputLink>
+          </h:form>
+        </p:panel>
+        <h:panelGrid cellspacing="0" cellpadding="0" styleClass="content">
+          <p:panel id="data" toggleable="true" toggleSpeed="250">
+            <f:facet name="header">
+              <h:outputLabel value="#{messages.error_uncaughtexception_title}" />
+            </f:facet>
+            <h:outputText value="#{messages.error_uncaughtexception_problemdescription}" />
+          </p:panel>
+        </h:panelGrid>
+      </h:panelGrid>
+    </h:panelGrid>
+  </h:body>
+</f:view>
+</html>

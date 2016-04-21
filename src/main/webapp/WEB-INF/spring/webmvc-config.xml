@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:faces="http://www.springframework.org/schema/faces"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	http://www.springframework.org/schema/faces http://www.springframework.org/schema/faces/spring-faces-2.2.xsd">
+
+	<context:component-scan base-package="net.nessafesta.webflow">
+		<context:exclude-filter expression=".*_Roo_.*"
+			type="regex" />
+	</context:component-scan>
+
+	<import resource="webflow-config.xml" />
+
+	<!-- SPRING MVC SERVLET CONFIGURATION -->
+	<mvc:annotation-driven />
+
+	<mvc:resources location="/, classpath:/META-INF/web-resources/" mapping="/resources/**" />
+
+	<!-- controllers -->
+	<mvc:view-controller path="/login" />
+	<mvc:view-controller path="/uncaughtException" />
+	<mvc:view-controller path="/resourceNotFound" />
+
+	<faces:resources />
+
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="order" value="1" />
+		<property name="flowRegistry" ref="flowRegistry" />
+		<property name="defaultHandler">
+			<!-- If no flow match, map path to a view to render; e.g. the "/intro" 
+				path would map to the view named "intro" -->
+			<bean class="org.springframework.web.servlet.mvc.UrlFilenameViewController" />
+		</property>
+
+	</bean>
+	<!-- <bean id="faceletsViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"> 
+		<property name="viewClass" value="org.springframework.faces.mvc.JsfView" 
+		/> <property name="prefix" value="/WEB-INF/view/" /> <property name="suffix" 
+		value=".xhtml" /> </bean> -->
+	<!-- Dispatches requests mapped to org.springframework.web.servlet.mvc.Controller 
+		implementations -->
+	<!-- <bean
+		class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" /> -->
+
+	<!-- Dispatches requests mapped to flows to FlowHandler implementations -->
+	<bean class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor" />
+	</bean>
+</beans>

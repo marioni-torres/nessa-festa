@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<f:view locale="#{localeBean.locale}" contentType="text/html">
+	<h:head>
+		<title>#{applicationBean.appName}</title>
+		<h:outputStylesheet library="css" name="standard.css" />
+		<h:outputStylesheet library="css" name="nessa-festa.css" />
+	</h:head>
+	<h:body>
+		<form name="loginForm"
+			action="#{request.contextPath}/resources/j_spring_security_check"
+			method="post">
+			<p:dialog id="loginDialog" header="#{messages.security_login_title}"
+				modal="true" widgetVar="loginDialogWidget" dynamic="false"
+				visible="true" resizable="false" maximizable="false"
+				showEffect="fade" hideEffect="explode" closable="false"
+				onShow="jQuery('#j_username').focus();">
+				<p:outputPanel id="loginPanel">
+					<c:if test="${not empty param.login_error}">
+						<h:outputFormat value="#{messages.security_login_unsuccessful}">
+							<f:param value="${SPRING_SECURITY_LAST_EXCEPTION.message}" />
+						</h:outputFormat>
+					</c:if>
+					<c:if test="${empty param.login_error}">
+						<h:outputLabel value="#{messages.security_login_message}" />
+					</c:if>
+					<h:panelGrid columns="3" styleClass="dialog login-table"
+						columnClasses="col1,col2,col3" id="loginPnlGrid">
+						<h:column>
+							<label for="j_username">#{messages.security_login_form_name}:</label>
+						</h:column>
+						<h:column>
+							<input type="text" name="j_username" id="j_username" />
+						</h:column>
+						<h:column>
+							<h:outputLabel
+								value="#{messages.security_login_form_name_message}" />
+						</h:column>
+
+						<h:column>
+							<label for="j_password">#{messages.security_login_form_password}:</label>
+						</h:column>
+						<h:column>
+							<input type="password" name="j_password" id="j_password" />
+						</h:column>
+						<h:column>
+							<h:outputLabel
+								value="#{messages.security_login_form_password_message}" />
+						</h:column>
+					</h:panelGrid>
+				</p:outputPanel>
+				<f:facet name="footer">
+					<input type="submit" name="submitBtn"
+						value="#{messages.submit_btn}" class="marging-left" />
+					<input type="reset" name="resetBtn" value="#{messages.reset_btn}"
+						class="marging-left" />
+				</f:facet>
+			</p:dialog>
+		</form>
+	</h:body>
+</f:view>
+</html>

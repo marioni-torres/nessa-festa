@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:skins="http://java.sun.com/jsf/composite/skins">
+
+<skins:invitation style="blues">
+	<!-- The Window Title -->
+	<f:facet name="windowsTitle">
+		<h:outputText value="#{confirmInvitationBean.invitation}" />
+	</f:facet>
+
+	<!-- Static content -->
+	<f:facet name="skinResources">
+	</f:facet>
+
+	<!-- Header -->
+	<f:facet name="skinNorth">
+		<div id="greetings_panel">
+			<h1>
+				<p:outputLabel value="#{confirmInvitationBean.invitation}," />
+			</h1>
+			<p:outputLabel value="#{messages.confirm_assistance_dialog_title}"
+				styleClass="medium-font" />
+		</div>
+	</f:facet>
+
+	<!-- Content -->
+	<f:facet name="content">
+		<h:form prependId="false" id="growlForm">
+			<p:growl id="growl" showDetail="false" />
+		</h:form>
+
+		<h:form prependId="false" id="dataForm">
+			<div id="content_panel">
+				<p:panel id="data" toggleable="true" toggleSpeed="250">
+
+					<p:dataTable id="list"
+						value="#{confirmInvitationBean.attendeesGroupList}"
+						var="attendeesGroup" resizableColumns="false" rows="10"
+						sortOrder="ascending"
+						sortBy="attendeesGroup.inviteesGroup.guestType" scrollable="true"
+						styleClass="party-build-datatable"
+						rowStyleClass="party-build-datatable-row">
+						<p:column>
+							<h:graphicImage library="images"
+								name="#{attendeesGroup.inviteesGroup.guestType}.png"
+								alt="#{attendeesGroup.inviteesGroup.guestType}" />
+						</p:column>
+						<p:column>
+							<p:spinner value="#{attendeesGroup.attending}"
+								max="#{confirmInvitationBean.findMaxGuestsAllowedFor(attendeesGroup.inviteesGroup.guestType)}"
+								min="0" disabled="#{confirmInvitationBean.isConfirmed()}">
+								<p:ajax listener="#{confirmInvitationBean.updateAttendeesNumber}" />
+							</p:spinner>
+						</p:column>
+					</p:dataTable>
+
+				</p:panel>
+			</div>
+
+			<!-- buttons -->
+			<div class="buttons">
+				<HR />
+				<div class="buttons_left"></div>
+
+				<div class="buttons_right">
+					<p:commandButton value="#{messages.confirm_btn}"
+						onclick="javascript:createDialogWidget.show();" type="button"
+						disabled="#{confirmInvitationBean.isConfirmed()}">
+					</p:commandButton>
+				</div>
+			</div>
+
+		</h:form>
+	</f:facet>
+
+
+</skins:invitation>
+
+</html>
