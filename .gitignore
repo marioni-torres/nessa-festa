@@ -1,0 +1,8 @@
+.classpath
+*.log
+log.*
+target/
+*.sql
+.metadata/
+.settings/
+.project
