@@ -5,7 +5,7 @@
 	<groupId>net.nessafesta</groupId>
 	<artifactId>nessa-festa</artifactId>
 	<packaging>war</packaging>
-	<version>0.1.0.BUILD-SNAPSHOT</version>
+	<version>1.0.0.BUILD-SNAPSHOT</version>
 	<name>nessa-festa</name>
 	<properties>
 		<aspectj.version>1.7.4</aspectj.version>
